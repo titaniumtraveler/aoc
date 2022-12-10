@@ -9,6 +9,7 @@ use thiserror::Error;
 
 mod macros;
 mod runner;
+mod year_2022;
 
 fn main() -> Result<(), Error> {
     let mut runner = AocRunner;
