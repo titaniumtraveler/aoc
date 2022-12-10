@@ -9,7 +9,7 @@ use thiserror::Error;
 pub struct AocRunner;
 
 impl<'a> Runner<'a> for AocRunner {
-    type Error = AocRunnerError;
+    type Error = AocRunnerError<'a>;
 
     fn run(&mut self, config: Config, str: &'a str) -> Result<u32, Self::Error> {
         match config.year {
@@ -20,7 +20,7 @@ impl<'a> Runner<'a> for AocRunner {
 }
 
 #[derive(Debug, Error)]
-pub enum AocRunnerError {
+pub enum AocRunnerError<'a> {
     #[error(transparent)]
     Year2022(Year2022Error<'a>),
 }
